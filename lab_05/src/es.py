@@ -18,18 +18,17 @@ class ElectronicSignature():
     def hashFile(self, inputFileName: str, outputFileName: str):
         '''
         Secure Hash Algorithm (SHA)
-        SHA3 (блок данных 512 бит, хеш —- 256 бит)
+        SHA3 -- одна из нескольких криптографических хеш-функций, 
+        которая принимает входные данные и выдает 512-битное (64-байтовое) значение хеш-функции. 
+        Результат обычно отображается как шестнадцатеричное число длиной 128 цифр.
         '''
         inputFile = open(inputFileName, "rb")
         outputFile = open(outputFileName, "w")
         
-        while True:
-            bytesStr = inputFile.read(64)
-            if not bytesStr:
-                break
-            
-            hashedStr = hashlib.sha256(bytesStr).hexdigest()
-            outputFile.write(hashedStr)
+        bytesStr = inputFile.read()
+        
+        hashedStr = hashlib.sha3_512(bytesStr).hexdigest()
+        outputFile.write(hashedStr)
 
         inputFile.close()
         outputFile.close()
