@@ -5,6 +5,7 @@ class Rsa():
 
 
     def __init__(self, p: int, q: int):
+        # длина алфавита (зашифрованного)
         self.n = p * q
         # fi - функция Эйлера от числа n
         fi = (p - 1) * (q - 1)
