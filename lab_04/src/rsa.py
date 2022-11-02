@@ -116,7 +116,7 @@ class Rsa():
         '''
         res = 1
         while degree > 0:
-            # если степень четная
+            # если степень нечетная
             if degree & 1:
                 res = (res * num) % nMod
 
