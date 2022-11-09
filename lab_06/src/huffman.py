@@ -32,9 +32,10 @@ class Huffman():
         for i in range(1, len(bitsStr) + 1):
             # обход дерева в поисках символа переданного кода
             symbol = self.tree.getSymbolByCode(bitsStr[:i])
-            # не дошли до конца дерева, надо взять больший код
+            
             if symbol != None:
                 return symbol, i
+            # иначе не дошли до конца дерева, надо взять больший код
 
 
     def decompress(self, bitsStr: str) -> bytes:
